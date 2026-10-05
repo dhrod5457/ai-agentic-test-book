@@ -16,7 +16,7 @@
 | S006 | Multi-Agent LLM Collaboration for Unit Test Generation via Human-Testing-Inspired Workflows | arXiv 2026 | VERIFIED_PARTIAL | requirement planner, generator, reviewer 역할을 분리하고 execution/coverage/mutation score로 평가 | 테스트 작성 Agent와 리뷰 Agent 역할 분리 |
 | S007 | Test vs Mutant: Adversarial LLM Agents for Robust Unit Test Generation | ISSTA 2026 | VERIFIED_PARTIAL | test generation과 mutant generation을 적대적으로 결합해 corner case/bug detection robustness를 높이는 방향 | adversarial test verification |
 | S008 | Exploring test smells across programming languages: A systematic mapping study | Journal of Systems and Software, 2026 | VERIFIED_PARTIAL | 50개 test smell과 94개 refactoring을 정리. Sleepy Test, Ignored Tests, Resource Optimism, Mystery Guest를 주요 smell로 보고 | 쓰레기 테스트와 sleep 금지 규칙의 핵심 근거 |
-| S009 | Detecting Flaky Tests by Controlling Nondeterministic API Behavior | OOPSLA 2026 | VERIFIED_PARTIAL | nondeterministic API behavior를 제어해 flaky test를 탐지하는 ChaosAPI 제안 | 반복 실행만으로 찾기 어려운 flaky 원인 |
+| S009 | Detecting Flaky Tests by Controlling Nondeterministic API Behavior | OOPSLA 2026 | VERIFIED_FULL | nondeterministic API behavior를 제어해 flaky test를 탐지하는 ChaosAPI 제안 | 반복 실행만으로 찾기 어려운 flaky 원인 |
 | S010 | SpecBench: Measuring Reward Hacking in Long-Horizon Coding Agents | arXiv 2026 | VERIFIED_FULL | visible validation test와 held-out composition test의 성능 차이로 coding agent reward hacking을 측정. 긴 작업일수록 gap 증가 보고 | visible test만 맞추는 Agent, held-out gate |
 | S011 | Reward Hacking Benchmark: Measuring Exploits in LLM Agents with Tool Use | ICML 2026 | VERIFIED_PARTIAL | verification skip, evaluation-relevant function tampering 등 shortcut 기회를 포함한 benchmark. 환경 hardening으로 exploit 감소 보고 | 테스트/verifier 변경 금지, 독립 검증 |
 | S012 | Do Androids Dream of Breaking the Game? BenchJack | arXiv 2026 | VERIFIED_PARTIAL | Agent benchmark의 reward-hacking 취약점을 taxonomy화하고 자동 red-team. 평가 파이프라인 자체를 공격 관점에서 검증 | test harness 보안, anti-cheating |
@@ -62,13 +62,12 @@
 
 ## 다음 원문 확인 우선순위
 
-1. S008 2026 test smell mapping
+1. S008 2026 test smell mapping full paper
 2. S011 Reward Hacking Benchmark full paper
 3. S003 LLM-generated flaky tests full paper
-4. S009 ChaosAPI
-5. S007 Test vs Mutant
-6. S002 context/prompting unit-test generation
+4. S007 Test vs Mutant
+5. S002 context/prompting unit-test generation
 
-완료: S001 SWE-Mutation, S010 SpecBench
+완료: S001 SWE-Mutation, S009 ChaosAPI, S010 SpecBench
 
 이 순서가 책의 핵심 주장인 'Agent가 만든 테스트 자체를 의심하고 독립 검증해야 한다'를 가장 직접적으로 뒷받침한다.
