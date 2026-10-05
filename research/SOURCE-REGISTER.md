@@ -9,7 +9,7 @@
 | ID | 자료 | 발표 | 상태 | 확인한 핵심 내용 | 책에서의 용도 |
 |---|---|---|---|---|---|
 | S001 | SWE-Mutation: Can LLMs Generate Reliable Test Suites in Software Engineering? | ACL Findings 2026 | VERIFIED_FULL | 800개 원본 인스턴스에서 2,636개 mutant를 구성. 자동 생성 테스트가 피상적이며 잘못된 변형 구현을 충분히 구별하지 못하는 문제를 평가. DeepSeek-V3.1도 낮은 verification/detection 결과를 보였다고 보고 | '테스트가 통과'와 '버그를 잡는 테스트'의 차이, mutation gate |
-| S002 | Impact of code context and prompting strategies on automated unit test generation with modern general-purpose LLMs | Journal of Systems and Software, 2026 | VERIFIED_PARTIAL | context와 prompting에 따라 branch coverage와 mutation score가 크게 달라짐. 특수 값(None/inf/NaN) robustness test를 체계적으로 놓치는 경향 보고 | Agent에게 요구사항/문맥을 주는 방법, 경계값 테스트 규칙 |
+| S002 | Impact of code context and prompting strategies on automated unit test generation with modern general-purpose LLMs | Journal of Systems and Software, 2026 | VERIFIED_PARTIAL+REPLICATION | context와 prompting에 따라 branch coverage와 mutation score가 크게 달라짐. 특수 값(None/inf/NaN) robustness test를 체계적으로 놓치는 경향 보고 | Agent에게 요구사항/문맥을 주는 방법, 경계값 테스트 규칙 |
 | S003 | On the Flakiness of LLM-Generated Tests for Industrial and Open-Source Database Management Systems | ICSE-SEIP 2026 | VERIFIED_PARTIAL | SAP HANA, DuckDB, MySQL, SQLite를 대상으로 LLM 생성 테스트의 flaky 문제 분석. 115개 flaky test 중 72개(63%)가 unordered collection 의존과 관련 | flaky gate, 순서 비결정성 |
 | S004 | LLM-based Mockless Unit Test Generation for Java | arXiv 2026 | VERIFIED_PARTIAL | Java에서 dependency 문맥을 보강하고 제약 기반 수정을 적용해 mockless 테스트 생성. coverage와 mutation score로 평가 | 과도한 mock 문제, 실제 dependency code 실행 |
 | S005 | Understanding the Effect of Agentic Iteration on LLM-Based Unit Test Generation | IEEE BDAI 2026 | VERIFIED_PARTIAL | multi-agent 반복 방식이 항상 one-shot보다 우수하지 않으며 PiTest mutation score로 비교. architecture/context 구성의 영향이 큼 | 'Agent를 여러 번 돌리면 좋아진다'는 가정 검증 |
@@ -65,9 +65,7 @@
 1. S008 2026 test smell mapping full paper
 2. S011 Reward Hacking Benchmark full paper
 3. S003 LLM-generated flaky tests full paper
-4. S002 context/prompting unit-test generation
-
-완료: S007 Test vs Mutant
+완료: S002 context/prompting unit-test generation (PARTIAL+REPLICATION), S007 Test vs Mutant
 
 완료: S001 SWE-Mutation, S007 Test vs Mutant, S009 ChaosAPI, S010 SpecBench
 
