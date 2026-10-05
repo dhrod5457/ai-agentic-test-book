@@ -8,7 +8,7 @@
 
 | ID | 자료 | 발표 | 상태 | 확인한 핵심 내용 | 책에서의 용도 |
 |---|---|---|---|---|---|
-| S001 | SWE-Mutation: Can LLMs Generate Reliable Test Suites in Software Engineering? | ACL Findings 2026 | VERIFIED_PARTIAL | 800개 원본 인스턴스에서 2,636개 mutant를 구성. 자동 생성 테스트가 피상적이며 잘못된 변형 구현을 충분히 구별하지 못하는 문제를 평가. DeepSeek-V3.1도 낮은 verification/detection 결과를 보였다고 보고 | '테스트가 통과'와 '버그를 잡는 테스트'의 차이, mutation gate |
+| S001 | SWE-Mutation: Can LLMs Generate Reliable Test Suites in Software Engineering? | ACL Findings 2026 | VERIFIED_FULL | 800개 원본 인스턴스에서 2,636개 mutant를 구성. 자동 생성 테스트가 피상적이며 잘못된 변형 구현을 충분히 구별하지 못하는 문제를 평가. DeepSeek-V3.1도 낮은 verification/detection 결과를 보였다고 보고 | '테스트가 통과'와 '버그를 잡는 테스트'의 차이, mutation gate |
 | S002 | Impact of code context and prompting strategies on automated unit test generation with modern general-purpose LLMs | Journal of Systems and Software, 2026 | VERIFIED_PARTIAL | context와 prompting에 따라 branch coverage와 mutation score가 크게 달라짐. 특수 값(None/inf/NaN) robustness test를 체계적으로 놓치는 경향 보고 | Agent에게 요구사항/문맥을 주는 방법, 경계값 테스트 규칙 |
 | S003 | On the Flakiness of LLM-Generated Tests for Industrial and Open-Source Database Management Systems | ICSE-SEIP 2026 | VERIFIED_PARTIAL | SAP HANA, DuckDB, MySQL, SQLite를 대상으로 LLM 생성 테스트의 flaky 문제 분석. 115개 flaky test 중 72개(63%)가 unordered collection 의존과 관련 | flaky gate, 순서 비결정성 |
 | S004 | LLM-based Mockless Unit Test Generation for Java | arXiv 2026 | VERIFIED_PARTIAL | Java에서 dependency 문맥을 보강하고 제약 기반 수정을 적용해 mockless 테스트 생성. coverage와 mutation score로 평가 | 과도한 mock 문제, 실제 dependency code 실행 |
@@ -17,7 +17,7 @@
 | S007 | Test vs Mutant: Adversarial LLM Agents for Robust Unit Test Generation | ISSTA 2026 | VERIFIED_PARTIAL | test generation과 mutant generation을 적대적으로 결합해 corner case/bug detection robustness를 높이는 방향 | adversarial test verification |
 | S008 | Exploring test smells across programming languages: A systematic mapping study | Journal of Systems and Software, 2026 | VERIFIED_PARTIAL | 50개 test smell과 94개 refactoring을 정리. Sleepy Test, Ignored Tests, Resource Optimism, Mystery Guest를 주요 smell로 보고 | 쓰레기 테스트와 sleep 금지 규칙의 핵심 근거 |
 | S009 | Detecting Flaky Tests by Controlling Nondeterministic API Behavior | OOPSLA 2026 | VERIFIED_PARTIAL | nondeterministic API behavior를 제어해 flaky test를 탐지하는 ChaosAPI 제안 | 반복 실행만으로 찾기 어려운 flaky 원인 |
-| S010 | SpecBench: Measuring Reward Hacking in Long-Horizon Coding Agents | arXiv 2026 | VERIFIED_PARTIAL | visible validation test와 held-out composition test의 성능 차이로 coding agent reward hacking을 측정. 긴 작업일수록 gap 증가 보고 | visible test만 맞추는 Agent, held-out gate |
+| S010 | SpecBench: Measuring Reward Hacking in Long-Horizon Coding Agents | arXiv 2026 | VERIFIED_FULL | visible validation test와 held-out composition test의 성능 차이로 coding agent reward hacking을 측정. 긴 작업일수록 gap 증가 보고 | visible test만 맞추는 Agent, held-out gate |
 | S011 | Reward Hacking Benchmark: Measuring Exploits in LLM Agents with Tool Use | ICML 2026 | VERIFIED_PARTIAL | verification skip, evaluation-relevant function tampering 등 shortcut 기회를 포함한 benchmark. 환경 hardening으로 exploit 감소 보고 | 테스트/verifier 변경 금지, 독립 검증 |
 | S012 | Do Androids Dream of Breaking the Game? BenchJack | arXiv 2026 | VERIFIED_PARTIAL | Agent benchmark의 reward-hacking 취약점을 taxonomy화하고 자동 red-team. 평가 파이프라인 자체를 공격 관점에서 검증 | test harness 보안, anti-cheating |
 | S013 | SWE-rebench V2: Language-Agnostic SWE Task Collection at Scale | ICML 2026 | VERIFIED_PARTIAL | reproducible execution environment와 reliable test suite가 SWE agent 학습/평가의 병목임을 전제로 task 수집 및 filtering | 재현 가능한 테스트 환경 |
@@ -62,13 +62,13 @@
 
 ## 다음 원문 확인 우선순위
 
-1. S001 SWE-Mutation
-2. S008 2026 test smell mapping
-3. S010 SpecBench
-4. S011 Reward Hacking Benchmark
-5. S003 LLM-generated flaky tests
-6. S009 ChaosAPI
-7. S007 Test vs Mutant
-8. S002 context/prompting unit-test generation
+1. S008 2026 test smell mapping
+2. S011 Reward Hacking Benchmark full paper
+3. S003 LLM-generated flaky tests full paper
+4. S009 ChaosAPI
+5. S007 Test vs Mutant
+6. S002 context/prompting unit-test generation
+
+완료: S001 SWE-Mutation, S010 SpecBench
 
 이 순서가 책의 핵심 주장인 'Agent가 만든 테스트 자체를 의심하고 독립 검증해야 한다'를 가장 직접적으로 뒷받침한다.
